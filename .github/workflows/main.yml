@@ -10,12 +10,14 @@ on:
 
 jobs:
   lint:
-    name: Run Lint-Staged
+    name: Run Lint-Staged on Changed Files
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Ensures full history is available for comparison
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
